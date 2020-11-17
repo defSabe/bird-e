@@ -87,19 +87,14 @@ passport.use(
   new LocalStrategy(
     {
       usernameField: 'username', 
-      emailField: 'email',
       passwordField: 'password' 
     },
     
-    (username, email, password, done) => {
+    (username, password, done) => {
       User.findOne({ username })
         .then(user => {
           if (!user) {
             return done(null, false, { message: 'Incorrect username' });
-          }
-
-          if (!email) {
-            return done(null, false, { message: 'Incorrect email' });
           }
  
           if (!bcrypt.compareSync(password, user.password)) {

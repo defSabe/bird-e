@@ -51,13 +51,13 @@ router.post('/signup', (req, res, next) => {
 router.get('/login', (req, res, next) => res.render('auth/login'));
 
 // POST Login
-router.post(
-  '/login',
-  passport.authenticate('local', {
-    successRedirect: '/test',
-    failureRedirect: '/login'
-  })
-);
+router.post('/login', passport.authenticate('local'), (req, res) => {
+        console.log("success")
+        res.redirect('/test')
+        // successRedirect: '/test',
+        //failureRedirect: '/login'
+    });
+
 
 // GET test
 router.get('/test', (req, res, next) => res.render('users/test'));

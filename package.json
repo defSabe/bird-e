@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "DEBUG=bird-e:* nodemon ./bin/www",
+    "dev": "DEBUG=bird-e:* nodemon --inspect ./bin/www",
     "dev-windows": "nodemon ./bin/www"
   },
   "dependencies": {
