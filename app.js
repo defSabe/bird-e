@@ -9,9 +9,20 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+
+const bcrypt = require('bcrypt');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const ensureLogin = require('connect-ensure-login');
 
 mongoose
-  .connect('mongodb://localhost/bird-e', {useNewUrlParser: true})
+  .connect('mongodb://localhost/bird-e', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+  })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -44,15 +55,69 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
-
-
 // default value for title local
 app.locals.title = 'Bird-e';
 
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection
+    }),
+    resave: true,
+    saveUninitialized: false 
+  })
+);
 
+// Initalize passport
+const User = require('./models/User.model.js');
 
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser((user, cb) => cb(null, user._id));
+ 
+passport.deserializeUser((id, cb) => {
+  User.findById(id)
+    .then(user => cb(null, user))
+    .catch(err => cb(err));
+});
+ 
+passport.use(
+  new LocalStrategy(
+    {
+      usernameField: 'username', 
+      emailField: 'email',
+      passwordField: 'password' 
+    },
+    
+    (username, email, password, done) => {
+      User.findOne({ username })
+        .then(user => {
+          if (!user) {
+            return done(null, false, { message: 'Incorrect username' });
+          }
+
+          if (!email) {
+            return done(null, false, { message: 'Incorrect email' });
+          }
+ 
+          if (!bcrypt.compareSync(password, user.password)) {
+            return done(null, false, { message: 'Incorrect password' });
+          }
+ 
+          done(null, user);
+        })
+        .catch(err => (err));
+    }
+  )
+);
+
+// Routes middleware
 const index = require('./routes/index');
 app.use('/', index);
+const authRoutes = require('./routes/auth.routes');
+app.use('/', authRoutes);
 
 
 module.exports = app;
