@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
-
 const Bird = require('../models/Bird.model');
-const DB_NAME = 'bird-eApp';
+const DB_NAME = 'bird-e';
 
 mongoose.connect(`mongodb://localhost/${DB_NAME}`, {
     useCreateIndex: true,

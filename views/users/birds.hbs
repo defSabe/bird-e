@@ -1,8 +1,11 @@
-<div class="container">
+<div >
     <h1>Birds</h1>
-    <div class="row">
-        {{#each birds}}
-        {{> birdCard this}}
+    <div >
+        {{#each birdsFromDB}}
+        <ul>
+            <li>{{> birdCard}}</li>
+        </ul>
         {{/each}}
     </div>
+    <a href="/logout">Logout</a>
 </div>

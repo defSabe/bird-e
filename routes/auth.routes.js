@@ -56,7 +56,7 @@ router.post('/signup', (req, res, next) => {
         
         newUser
           .save()
-          .then(() => res.redirect('/test'))
+          .then(() => res.redirect('/main-board'))
           .catch(err => next(err));
       })
       .catch(err => next(err));
@@ -67,22 +67,22 @@ router.get('/login', (req, res, next) => res.render('auth/login'));
 // POST Login
 router.post('/login', passport.authenticate('local'), (req, res) => {
         console.log("success")
-        res.redirect('/test')
+        res.redirect('/main-board')
         // successRedirect: '/test',
         //failureRedirect: '/login'
     });
 
 
-// GET test
-router.get('/test', (req, res) => {
-    if (!req.user) {
-      res.redirect('/login'); // can't access the page, so go and log in
-      return;
-    }
-   
-    // ok, req.user is defined
-    res.render('users/test', { user: req.user });
-  });
+// GET main board
+// router.get('/main-board', (req, res) => {
+//     if (!req.user) {
+//       res.redirect('/login'); // can't access the page, so go and log in
+//       return;
+//     }
+//     console.log("birds")
+//     // ok, req.user is defined
+//     res.render('users/birds', { user: req.user });
+//   });
 
 // Logout
 router.get('/logout', (req, res) => {

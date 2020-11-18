@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 mongoose
-  .connect('mongodb://localhost/bird-e app', {
+  .connect('mongodb://localhost/bird-e', {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true

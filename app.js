@@ -15,7 +15,7 @@ const MongoStore = require('connect-mongo')(session);
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const ensureLogin = require('connect-ensure-login');
+// const ensureLogin = require('connect-ensure-login');
 
 mongoose
   .connect('mongodb://localhost/bird-e', {
@@ -63,8 +63,8 @@ hbs.registerPartials(__dirname + "/views/partials");
 
 //birds route
 
-app.get("/birds", (req, res, next) =>
-  res.render("birds"));
+// app.get("/main-board", (req, res, next) =>
+//   res.render("birds"));
 
 
 // default value for title local
@@ -125,6 +125,8 @@ const index = require('./routes/index');
 app.use('/', index);
 const authRoutes = require('./routes/auth.routes');
 app.use('/', authRoutes);
+const birdRoutes = require('./routes/birds.routes');
+app.use('/', birdRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log(`Listening on http://localhost:${process.env.PORT}`);

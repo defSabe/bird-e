@@ -1,9 +1,6 @@
 const mongoose = require("mongoose");
 
-const {
-    Schema,
-    model
-} = mongoose;
+const { Schema, model } = mongoose;
 
 const birdSchema = new Schema({
     name: String,
