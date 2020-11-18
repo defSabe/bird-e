@@ -24,10 +24,10 @@ mongoose
     useCreateIndex: true
   })
   .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
   })
   .catch(err => {
-    console.error('Error connecting to mongo', err)
+    console.error('Error connecting to mongo', err);
   });
 
 const app_name = require('./package.json').name;
@@ -60,12 +60,6 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // Partials set-up
 
 hbs.registerPartials(__dirname + "/views/partials");
-
-//birds route
-
-// app.get("/main-board", (req, res, next) =>
-//   res.render("birds"));
-
 
 // default value for title local
 app.locals.title = 'Bird-e';
