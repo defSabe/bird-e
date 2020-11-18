@@ -28,6 +28,20 @@ router.post('/signup', (req, res, next) => {
           res.render('auth/signup', { message: 'The username already exists' });
           return;
         }
+        // Strong password pattern.
+        const strongPasswordRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+
+        // Validate that incoming password matches regex pattern.
+        if (!strongPasswordRegex.test(password)) {
+        res.status(500).render("auth/signup", {
+            email,
+            username,
+            errorMessage:
+            "Password needs to have at least 6 chars and must contain at least one number, one lowercase and one uppercase letter.",
+            });
+        return;
+        }
+
    
         // Encrypt the password
         const salt = bcrypt.genSaltSync(bcryptSalt);
@@ -51,16 +65,24 @@ router.post('/signup', (req, res, next) => {
 router.get('/login', (req, res, next) => res.render('auth/login'));
 
 // POST Login
-router.post(
-  '/login',
-  passport.authenticate('local', {
-    successRedirect: '/test',
-    failureRedirect: '/login'
-  })
-);
+router.post('/login', passport.authenticate('local'), (req, res) => {
+        console.log("success")
+        res.redirect('/test')
+        // successRedirect: '/test',
+        //failureRedirect: '/login'
+    });
+
 
 // GET test
-router.get('/test', (req, res, next) => res.render('users/test'));
+router.get('/test', (req, res) => {
+    if (!req.user) {
+      res.redirect('/login'); // can't access the page, so go and log in
+      return;
+    }
+   
+    // ok, req.user is defined
+    res.render('users/test', { user: req.user });
+  });
 
 // Logout
 router.get('/logout', (req, res) => {
