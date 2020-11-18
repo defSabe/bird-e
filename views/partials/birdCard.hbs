@@ -1,0 +1,22 @@
+<div class="col-md-4">
+    <div class="card">
+        <img class="card-img-top" src="{{this.imageUrl}}" alt="{{this.name}}" />
+        <div class="card-body">
+            <h1 class="card-title">{{this.name}}</h1>
+            <h3>{{this.scientificName}}</h3>
+            <h2>{{this.location}}</h2>
+            <h2>{{this.dateOfSight}}</h2>
+
+
+            <div class="btn-container">
+                <a href="/birds/{{this._id}}/{{edit}}" class="btn btn-secondary">See more info</a>
+
+                <a href="/birds/{{this._id}}/edit" class="btn btn-secondary">Edit</a>
+                <form action="/birds/{{id}}/delete" method="POST">
+                    <button type="submit" class="btn btn-danger"> Delete bird </button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
