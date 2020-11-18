@@ -1,1 +1,36 @@
 <h1>edit</h1>
+
+
+
+<div>
+    <form action="/birds/{{_id}}/edit" method="POST">
+
+        <div>
+            <h1>Edit bird</h1>
+            <div>
+                <div>
+                    <label for="name-input">Name:</label>
+                    <input type="text" name="name" id="name-input" value="{{this.name}}"/>
+
+                    <label for="scientific-name-input">Scientific Name:</label>
+                    <input type="text" name="scientificName" id="scientific-name-input" value="{{this.scientificName}}"/>
+
+                    <label for="date-sight">Date of sight:</label>
+                    <input type="text" name="dateOfSight" id="date-sight-input" value="{{this.dateOfSight}}"/>
+
+                    <label for="location">Location:</label>
+                    <input type="text" name="location" id="location-input" value="{{this.location}}"/>
+                </div>
+
+                <div>
+                    <label for="picture-url">Picture URL:</label>
+                    <input type="text" name="imageUrl" id="picture-url" value="{{this.imageUrl}}"/>
+
+                    <label for="more-info">More Info:</label>
+                    <input type="text" name="moreInfo" id="more-info" value="{{this.moreInfo}}"/>
+                </div>
+            </div>
+            <button type="submit">Update bird</button>
+        </div>
+    </form>
+</div>
