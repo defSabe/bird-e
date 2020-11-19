@@ -1,6 +1,12 @@
-<div >
+<nav class="navbar"><img src="/images/logo-ocre.png" style="height: 55px" alt="bird-e">
+    <div class="menu"><a href="/create" class="add">Add Bird</a>
+        <a href="/logout" class="logout">Logout</a>
+        <span>|  Welcome, <b>{{username}}</b></span></div>
+</nav>
+
+<div>
     <h1>Birds</h1>
-    <div >
+    <div>
         {{#each birdsFromDB}}
         <ul>
             <li>{{> birdCard}}</li>

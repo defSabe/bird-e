@@ -76,9 +76,26 @@ h1 {
 
 .container {
   background-color: rgba(255, 255, 255, 0.8);
-  width: 500px;
-  height: 400px;
+  width: 350px;
+  height: 350px;
   padding: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 150px;
+}
+
+.container form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -94,38 +111,128 @@ h1 {
           align-items: center;
 }
 
-.container form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
 .container form input {
   width: 300px;
   height: 40px;
-  border: gray 1px;
-  margin: 30px;
+  border-style: #6b847c 1px;
+  margin: 10px;
+  font-style: italic;
+  color: #6b847c;
+  font-size: 1em;
+}
+
+.container .additional {
+  color: #6b847c;
+}
+
+.container a {
+  color: #c47339;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 .action-btn {
   background-color: #6b847c;
+  margin-top: 5px;
   padding: 10px 20px;
   font-weight: 600;
   color: white;
   text-decoration: none;
   border-radius: 10px;
-  font-size: 1em;
+  font-size: 1.3em;
   border-style: none;
+  width: 200px;
 }
 
 .action-btn:hover {
   background-color: #e0d8b2;
+}
+
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar .menu {
+  margin-right: 50px;
+}
+
+.navbar a {
+  text-decoration: none;
+  font-weight: 600;
+  padding-right: 20px;
+}
+
+.navbar .add {
+  color: #c47339;
+}
+
+.navbar .logout {
+  color: #6b847c;
+}
+
+.create-container {
+  background: rgba(255, 255, 255, 0.8);
+  width: 800px;
+  height: 600px;
+  padding: 50px;
+  margin-top: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.create-container .flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.create-container .col-cont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 300px;
+  margin: 50px;
+}
+
+.create-container input {
+  width: 300px;
+  height: 40px;
+  border-style: #6b847c 1px;
+  color: #6b847c;
+  font-size: 1em;
+}
+
+.create-container #more-info {
+  height: 218px;
+}
+
+.create-container label {
+  font-size: 1em;
+  font-weight: 500;
+  padding: 20px 0 5px 0;
+}
+
+.create-container button {
+  margin-left: 50px;
 }
 /*# sourceMappingURL=style.css.map */

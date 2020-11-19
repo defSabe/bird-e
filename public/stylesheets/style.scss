@@ -72,42 +72,127 @@ h1 {
 
 .container {
   background-color: $transp;
-  width: 500px;
-  height: 400px;
+  width: 350px;
+  height: 350px;
   padding: 50px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  margin-top: 150px;
 
   form {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
 
     input {
       width: 300px;
       height: 40px;
-      border: gray 1px;
-      margin: 30px;
-
+      border-style: #6b847c 1px;
+      margin: 10px;
+      font-style: italic;
+      color: #6b847c;
+      font-size: 1em;
     }
-
   }
 
+  .additional {
+    color: #6b847c;
+    
+  }
+
+  a{
+    color: #c47339;
+    font-weight: 600;
+    text-decoration: none;
+  }
 }
+
 
 
 .action-btn {
   background-color: $secBtn;
+  margin-top: 5px;
   padding: 10px 20px;
   font-weight: 600;
   color: white;
   text-decoration: none;
   border-radius: 10px;
-  font-size: 1em;
+  font-size: 1.3em;
   border-style: none;
+  width: 200px;
   &:hover {
     background-color: #e0d8b2;
   }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .menu {
+    margin-right: 50px;
+  }
+  a {
+    text-decoration: none;
+    font-weight: 600;
+    padding-right: 20px;
+  }
+
+  .add {
+    color: #c47339;
+  }
+
+  .logout {
+    color: #6b847c;
+  }
+}
+
+.create-container {
+  background: $transp;
+  width: 800px;
+  height: 600px;
+  padding: 50px;
+  margin-top: 150px;
+  display: flex;
+  align-items: center;
+  
+  .flex-container {
+    display: flex;
+    flex-direction: row;
+    
+  }
+
+  .col-cont {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 50px;
+  }
+
+  input {
+    width: 300px;
+    height: 40px;
+    border-style: #6b847c 1px;
+    color: #6b847c;
+    font-size: 1em;
+
+  }
+  #more-info {
+    height: 218px;
+  }
+
+  label {
+    font-size: 1em;
+    font-weight: 500;
+    padding: 20px 0 5px 0;
+  }
+
+  button {
+    margin-left: 50px;
+  }
+
 }

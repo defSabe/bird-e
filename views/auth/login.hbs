@@ -1,14 +1,23 @@
-<div class="container">
-    <h1>Log in</h1>
-    <form action="/login" method="post" class="form-container">
+<nav><img src="/images/logo-ocre.png" style="height: 55px" alt="bird-e">
+</nav>
 
-        <input id="username" type="text" name="username" placeholder="Username">
-        <input id="password" type="password" name="password" placeholder="Password">
-        <button class="action-btn">Log in</button>
 
-    </form>
+<div class="wrapper">
+    <div class="container">
+        <h1>Log in</h1>
+        <form action="/login" method="post" class="form-container">
 
-    {{#if errorMessage}}
-    <div class="error-message">{{errorMessage}}</div>
-    {{/if}}
+            <input id="username" type="text" name="username" placeholder="Username">
+            <input id="password" type="password" name="password" placeholder="Password">
+            <button class="action-btn">Log in</button>
+
+        </form>
+        <div class="additional">
+            <p>Not a member? <a class="link-form" href="/signup">Sign up</a></p>
+        </div>
+        {{#if errorMessage}}
+        <div class="error-message">{{errorMessage}}</div>
+        {{/if}}
+    </div>
+
 </div>

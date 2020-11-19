@@ -1,14 +1,20 @@
-<h1>create</h1>
+<nav class="navbar"><img src="/images/logo-ocre.png" style="height: 55px" alt="bird-e">
+    <div class="menu"><a href="/create" class="add">Add Bird</a>
+        <a href="/logout" class="logout">Logout</a>
+        <span>|  Welcome, <b>{{username}}</b></span></div>
+</nav>
 
-
-
-<div>
+<div class="wrapper">
+    <div class="create-container">
     <form action="/create" method="POST">
 
         <div>
-            <h1>Add new bird</h1>
-            <div>
-                <div>
+            <div class="title-cont">
+                <h1>Add new bird</h1>
+            <hr>
+            </div>
+            <div class="flex-container">
+                <div class="col-cont">
                     <label for="name-input">Name:</label>
                     <input type="text" name="name" id="name-input" />
 
@@ -22,15 +28,16 @@
                     <input type="text" name="location" id="location-input" />
                 </div>
 
-                <div>
+                <div class="col-cont">
                     <label for="picture-url">Picture URL:</label>
                     <input type="text" name="imageUrl" id="picture-url" />
 
-                    <label for="more-info">More Info:</label>
-                    <input type="text" name="moreInfo" id="more-info" />
+                    <label for="more-info">More Info: <i>(Max 600 charachers)</i></label>
+                    <input type="text" name="moreInfo" id="more-info" maxlength="600"/>
                 </div>
             </div>
-            <button type="submit">Create</button>
+            <button type="submit" class="action-btn">Create</button>
         </div>
     </form>
+</div>
 </div>
