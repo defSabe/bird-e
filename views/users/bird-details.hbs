@@ -1,3 +1,10 @@
+<nav class="navbar">
+    <a href="/"><img src="/images/logo-ocre.png" style="height: 55px" alt="bird-e"> </a>
+    <div class="menu"><a href="/create" class="add">Add Bird</a>
+        <a href="/logout" class="logout">Logout</a>
+        <span>| Welcome, <b>{{username}}</b></span></div>
+</nav>
+
 <div class="card__container">
     <div class="card">
         <a href="/birds" class="btn draw-border">Back</a>
@@ -7,7 +14,7 @@
         <div class="grid-container">
             <div class="grid-child-date">
                 <img src="/images/pin-icon.png" class="icon__image">
-                Seen on: {{this.dateOfSight}} </div>
+                <b>Seen on: </b>{{this.dateOfSight}} </div>
             <div class="grid-child-location">
                 <img src="/images/cam-icon.png" class="icon__image">
                 {{this.location}}

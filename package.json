@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "dev": "DEBUG=bird-e:* node --inspect app.js",
+    "dev": "DEBUG=bird-e:* nodemon --inspect app.js",
     "dev-windows": "node app.js"
   },
   "dependencies": {

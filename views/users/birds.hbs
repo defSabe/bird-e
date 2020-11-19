@@ -1,16 +1,17 @@
-<nav class="navbar"><img src="/images/logo-ocre.png" style="height: 55px" alt="bird-e">
+<nav class="navbar">
+    <a href="/"><img src="/images/logo-ocre.png" style="height: 55px" alt="bird-e"> </a>
     <div class="menu"><a href="/create" class="add">Add Bird</a>
         <a href="/logout" class="logout">Logout</a>
-        <span>|  Welcome, <b>{{username}}</b></span></div>
+        <span>| Welcome, <b>{{this.username}}</b></span></div>
 </nav>
 
 <div class="card-wrapper">
-    
-        {{#each birdsFromDB}}
-        <ul class="card-list">
-            <li>{{> birdCard}}</li>
-        </ul>
-        {{/each}}
-    
-  
+
+    {{#each birdsFromDB}}
+    <ul class="card-list">
+        <li>{{> birdCard}}</li>
+    </ul>
+    {{/each}}
+
+
 </div>
