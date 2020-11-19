@@ -1,10 +1,10 @@
 const express = require('express');
 
-const Bird = require('../models/Bird.model')
+const Bird = require('../models/Bird.model');
 
 const router = express.Router();
 
-router.get('/main-board', (req, res,) => {
+router.get('/birds', (req, res) => {
     if (!req.user) {
         res.redirect('/login'); // can't access the page, so go and log in
         return;
@@ -16,50 +16,52 @@ router.get('/main-board', (req, res,) => {
                 birdsFromDB
             });
         })
-        .catch((err) => `Error fetching birds: ${err}`)
+        .catch((err) => `Error fetching birds: ${err}`);
 });
 
 // SEE MORE DETAILS
 router.get("/birds/:id", (req, res) => {
-    const { id } = req.params
+    const {
+        id
+    } = req.params
 
     Bird.findById(id)
-      .then((birdDetails) => res.render('users/bird-details',  birdDetails  ))
-      .catch((err) => `Error fetching birds: ${err}`)
+        .then((birdDetails) => res.render('users/bird-details', birdDetails))
+        .catch((err) => `Error fetching birds: ${err}`);
 });
 
+// ADD BIRD
+router.get('/create', (req, res, next) => {
 
-// router.get('/birds/create', (req, res, next) => {
-//     // Iteration #3: Add a new bird
-//     res.render("birds/create-form")
-// });
+    res.render("users/create");
+});
 
-// router.post('/create', (req, res, next) => {
-//     // Iteration #3: Add a new bird
-//     const {
-//         name,
-//         scientificName,
-//         dateOfSight,
-//         location,
-//         imageUrl,
-//         moreInfo,
-//     } = req.body;
+router.post('/create', (req, res, next) => {
 
-//     Bird.create({
-//             name,
-//             scientificName,
-//             dateOfSight,
-//             location,
-//             imageUrl,
-//             moreInfo,
-//         })
-//         .then(() => res.redirect("users/create"))
-//         .catch((err) => `Error while creating a new bird: ${err}`);
-// });
+    const {
+        name,
+        scientificName,
+        dateOfSight,
+        location,
+        imageUrl,
+        moreInfo,
+    } = req.body;
+
+    Bird.create({
+            name,
+            scientificName,
+            dateOfSight,
+            location,
+            imageUrl,
+            moreInfo,
+        })
+        .then(() => res.redirect("/birds"))
+        .catch((err) => `Error while creating a new bird: ${err}`);
+});
 
 // EDIT BIRD
 router.get('/birds/:id/edit', (req, res, next) => {
-    // Iteration #4: Update the bird
+
     const { id } = req.params;
 
     Bird.findById(id)
@@ -70,6 +72,7 @@ router.get('/birds/:id/edit', (req, res, next) => {
 });
 
 router.post('/birds/:id/edit', (req, res, next) => {
+    
     const { id } = req.params;
     const {
         name,
@@ -77,22 +80,15 @@ router.post('/birds/:id/edit', (req, res, next) => {
         dateOfSight,
         location,
         imageUrl,
-        moreInfo,
+        moreInfo
     } = req.body;
 
     Bird.findByIdAndUpdate(
-            id, {
-                name,
-                scientificName,
-                dateOfSight,
-                location,
-                imageUrl,
-                moreInfo,
-            }, {
+            id, req.body , {
                 new: true
             }
         )
-        .then((updatedBird) => res.redirect(`/main-board`))
+        .then(() => res.redirect(`/birds`))
         .catch((err) =>
             console.log(`Error while updating a single bird: ${err}`)
         );
@@ -100,11 +96,12 @@ router.post('/birds/:id/edit', (req, res, next) => {
 
 //DELETE BIRD
 router.post('/birds/:id/delete', (req, res, next) => {
-    // Delete the bird
-    const { id } = req.params;
+    const {
+        id
+    } = req.params;
 
     Bird.findByIdAndDelete(id)
-        .then(() => res.redirect("/main-board"))
+        .then(() => res.redirect("/birds"))
         .catch((err) => console.log(`Error while deleting a bird: ${err}`));
 });
 

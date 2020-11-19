@@ -1,6 +1,6 @@
 <div>
     <div>
-        <img src="{{this.imageUrl}}" alt="{{this.name}}" />
+        <img src="{{imageUrl}}" alt="{{this.name}}" />
         <div>
             <h1>{{this.name}}</h1>
             <h3>{{this.scientificName}}</h3>
@@ -12,8 +12,9 @@
                 <a href="/birds/{{this._id}}">See more info</a>
 
                 <a href="/birds/{{this._id}}/edit">Edit</a>
-                <a href="/birds/{{this._id}}/delete">Delete</a>
-              
+                <form action="/birds/{{this._id}}/delete" method="POST">
+                    <button type="submit"> Delete</button>  
+                </form>
             </div>
 
         </div>
