@@ -1,24 +1,24 @@
-<nav class="navbar"><img src="/images/logo-ocre.png" style="height: 55px" alt="bird-e">
-    <div class="menu"><a href="/create" class="add">Add Bird</a>
-        <a href="/logout" class="logout">Logout</a>
-        <span>| Welcome, <b>{{username}}</b></span></div>
-</nav>
-<div>
-    <div>
-        <a href="/birds">Back</a>
-        <h1>{{this.name}}</h1>
-        <h3>{{this.scientificName}}</h3>
-    </div>
-    <div>
-        <img src="{{this.imageUrl}}" alt="{{this.name}}" />
-        <div>
-            <h2>{{this.dateOfSight}}</h2>
-            <h2>{{this.location}}</h2>
-            <p>{{this.moreInfo}}</p>
-            <div>
-                <a href="/birds/{{this._id}}/edit">Edit</a>
-                <a href="/birds/{{this._id}}/delete">Delete</a>
+<div class="card__container">
+    <div class="card">
+        <a href="/birds" class="btn draw-border">Back</a>
+        <p class="card__name">{{this.name}}</p>
+        <p class="scientific-name">{{this.scientificName}}</p>
+        <img src="{{this.imageUrl}}" alt="{{this.name}}" class="card__image" />
+        <div class="grid-container">
+            <div class="grid-child-date">
+                <img src="/images/pin-icon.png" class="icon__image">
+                Seen on: {{this.dateOfSight}} </div>
+            <div class="grid-child-location">
+                <img src="/images/cam-icon.png" class="icon__image">
+                {{this.location}}
             </div>
+            <div class="grid-child-moreInfo">{{this.moreInfo}}</div>
+        </div>
+        <div>
+            <a href="/birds/{{this._id}}/edit" class="btn">Edit</a>
+            <a href="/birds/{{this._id}}/delete" class="btn">Delete</a>
         </div>
     </div>
+</div>
+</div>
 </div>

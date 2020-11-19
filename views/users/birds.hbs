@@ -4,14 +4,13 @@
         <span>|  Welcome, <b>{{username}}</b></span></div>
 </nav>
 
-<div>
-    <h1>Birds</h1>
-    <div>
+<div class="card-wrapper">
+    
         {{#each birdsFromDB}}
-        <ul>
+        <ul class="card-list">
             <li>{{> birdCard}}</li>
         </ul>
         {{/each}}
-    </div>
-    <a href="/logout">Logout</a>
+    
+  
 </div>
