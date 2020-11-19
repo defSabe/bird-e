@@ -13,7 +13,8 @@ router.get('/birds', (req, res) => {
     Bird.find({})
         .then((birdsFromDB) => {
             res.render('users/birds', {
-                birdsFromDB
+                birdsFromDB, 
+            
             });
         })
         .catch((err) => `Error fetching birds: ${err}`);
@@ -72,7 +73,7 @@ router.get('/birds/:id/edit', (req, res, next) => {
 });
 
 router.post('/birds/:id/edit', fileUploader.single('imageUrl'), (req, res, next) => {
-
+    console.log(req.file)
     const {
         id
     } = req.params;
@@ -81,17 +82,14 @@ router.post('/birds/:id/edit', fileUploader.single('imageUrl'), (req, res, next)
         scientificName,
         dateOfSight,
         location,
-        moreInfo
+        moreInfo,
+        existingImage
     } = req.body;
 
-    const {
-        path
-    } = req.file;
-
     let imageUrl;
-
+   
     if (req.file) {
-        imageUrl = path;
+        imageUrl = req.file.path;
     } else {
         imageUrl = existingImage;
     }

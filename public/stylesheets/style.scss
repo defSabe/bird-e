@@ -177,6 +177,12 @@ h1 {
     
   }
 
+  .title-cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .col-cont {
     display: flex;
     flex-direction: column;
@@ -204,6 +210,19 @@ h1 {
 
   button {
     margin-left: 50px;
+  }
+
+  .btn-back {
+    background-color: $secBtn;
+    margin-top: 5px;
+    padding: 10px 20px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1em;
+    height: 20px;
+
   }
 }
 
@@ -265,7 +284,7 @@ h1 {
   }
 
   hr {
-    border-top: 1px dashed;
+    border-top: 1px dashed gray;
   }
 }
 

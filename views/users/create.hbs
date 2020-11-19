@@ -2,44 +2,46 @@
     <a href="/"><img src="/images/logo-ocre.png" style="height: 55px" alt="bird-e"> </a>
     <div class="menu"><a href="/create" class="add">Add Bird</a>
         <a href="/logout" class="logout">Logout</a>
-        <span>| Welcome, <b>{{username}}</b></span></div>
+    </div>
 </nav>
 
 <div class="wrapper">
     <div class="create-container">
-    <form action="/create" method="POST" enctype="multipart/form-data">
+        <form action="/create" method="POST" enctype="multipart/form-data">
 
-        <div>
-            <div class="title-cont">
-                <h1>Add new bird</h1>
-            <hr>
-            </div>
-            <div class="flex-container">
-                <div class="col-cont">
-                    <label for="name-input">Name:</label>
-                    <input type="text" name="name" id="name-input" />
+            <div>
+                <div class="title-cont">
+                    <h1>Add new bird</h1>
+                    <a href="/birds" class="btn-back">Go Back</a>
 
-                    <label for="scientific-name-input">Scientific Name:</label>
-                    <input type="text" name="scientificName" id="scientific-name-input" />
-
-                    <label for="date-sight">Date of sight:</label>
-                    <input type="text" name="dateOfSight" id="date-sight-input" />
-
-                    <label for="location">Location:</label>
-                    <input type="text" name="location" id="location-input" />
                 </div>
+                <hr>
+                <div class="flex-container">
+                    <div class="col-cont">
+                        <label for="name-input">Name:</label>
+                        <input type="text" name="name" id="name-input" />
 
-                <div class="col-cont">
-                    <label for="picture-url">Picture URL:</label>
-                    {{!-- <input type="text" name="imageUrl" id="picture-url" /> --}}
-                    <input type="file" name="imageUrl" id="picture-url" />
+                        <label for="scientific-name-input">Scientific Name:</label>
+                        <input type="text" name="scientificName" id="scientific-name-input" />
 
-                    <label for="more-info">More Info: <i>(Max 600 charachers)</i></label>
-                    <input type="text" name="moreInfo" id="more-info" maxlength="600"/>
+                        <label for="date-sight">Date of sight:</label>
+                        <input type="text" name="dateOfSight" id="date-sight-input" />
+
+                        <label for="location">Location:</label>
+                        <input type="text" name="location" id="location-input" />
+                    </div>
+
+                    <div class="col-cont">
+                        <label for="picture-url">Picture URL:</label>
+                        {{!-- <input type="text" name="imageUrl" id="picture-url" /> --}}
+                        <input type="file" name="imageUrl" id="picture-url" />
+
+                        <label for="more-info">More Info: <i>(Max 600 charachers)</i></label>
+                        <input type="text" name="moreInfo" id="more-info" maxlength="600" />
+                    </div>
                 </div>
+                <button type="submit" class="action-btn">Create</button>
             </div>
-            <button type="submit" class="action-btn">Create</button>
-        </div>
-    </form>
-</div>
+        </form>
+    </div>
 </div>
