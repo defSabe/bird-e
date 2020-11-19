@@ -7,39 +7,40 @@
 
 <div class="wrapper">
     <div class="create-container">
-        <form action="/birds/{{_id}}/edit" method="POST"></form>
+        <form action="/birds/{{_id}}/edit" method="POST" enctype="multipart/form-data">
 
-        <div>
-            <div class="title-cont">
-                <h1>Edit bird</h1>
-                <hr>
-            </div>
-            <div class="flex-container">
-                <div class="col-cont">
-                    <label for="name-input">Name:</label>
-                    <input type="text" name="name" id="name-input" value="{{this.name}}" />
-
-                    <label for="scientific-name-input">Scientific Name:</label>
-                    <input type="text" name="scientificName" id="scientific-name-input"
-                        value="{{this.scientificName}}" />
-
-                    <label for="date-sight">Date of sight:</label>
-                    <input type="text" name="dateOfSight" id="date-sight-input" value="{{this.dateOfSight}}" />
-
-                    <label for="location">Location:</label>
-                    <input type="text" name="location" id="location-input" value="{{this.location}}" />
+            <div>
+                <div class="title-cont">
+                    <h1>Edit bird</h1>
+                    <hr>
                 </div>
+                <div class="flex-container">
+                    <div class="col-cont">
+                        <label for="name-input">Name:</label>
+                        <input type="text" name="name" id="name-input" value="{{this.name}}" />
 
-                <div class="col-cont">
-                    <label for="picture-url">Picture URL:</label>
-                    <input type="text" name="imageUrl" id="picture-url" value="{{this.imageUrl}}" />
+                        <label for="scientific-name-input">Scientific Name:</label>
+                        <input type="text" name="scientificName" id="scientific-name-input"
+                            value="{{this.scientificName}}" />
 
-                    <label for="more-info">More Info:</label>
-                    <input type="text" name="moreInfo" id="more-info" value="{{this.moreInfo}}" />
+                        <label for="date-sight">Date of sight:</label>
+                        <input type="text" name="dateOfSight" id="date-sight-input" value="{{this.dateOfSight}}" />
+
+                        <label for="location">Location:</label>
+                        <input type="text" name="location" id="location-input" value="{{this.location}}" />
+                    </div>
+
+                    <div class="col-cont">
+                        <label for="picture-url">Picture URL:</label>
+                        <input type="file" name="imageUrl" id="picture-url" />
+                        <input type="text" name="existingImage" hidden value="{{this.imageUrl}}" />
+
+                        <label for="more-info">More Info:</label>
+                        <input type="text" name="moreInfo" id="more-info" value="{{this.moreInfo}}" />
+                    </div>
                 </div>
+                <button type="submit" class="action-btn">Update bird</button>
             </div>
-            <button type="submit" class="action-btn">Update bird</button>
-        </div>
         </form>
     </div>
 
