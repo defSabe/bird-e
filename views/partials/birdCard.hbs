@@ -1,22 +1,21 @@
-<div>
-    <div>
-        <img src="{{imageUrl}}" alt="{{this.name}}" />
-        <div>
-            <h1>{{this.name}}</h1>
-            <h3>{{this.scientificName}}</h3>
-            <h2>{{this.location}}</h2>
-            <h2>{{this.dateOfSight}}</h2>
-
-
-            <div>
-                <a href="/birds/{{this._id}}">See more info</a>
-
-                <a href="/birds/{{this._id}}/edit">Edit</a>
-                <form action="/birds/{{this._id}}/delete" method="POST">
-                    <button type="submit"> Delete</button>  
-                </form>
+<div class="card__container">
+    <div class="card">
+        <img src="{{imageUrl}}" alt="{{this.name}}" class="card__image" />
+        <p class="card__name">{{this.name}}</p>
+        <div class="grid-container">
+            <div class="grid-child-scientific">{{this.scientificName}}</div>
+            <div class="grid-child-date">
+                <img src="/images/pin-icon.png" class="icon__image">
+                Seen on: {{this.dateOfSight}} </div>
+            <div class="grid-child-location">
+                <img src="/images/cam-icon.png" class="icon__image">
+                {{this.location}}
             </div>
-
         </div>
+        <a href="/birds/{{this._id}}" class="btn">See more info</a>
+        <a href="/birds/{{this._id}}/edit" class="btn">Edit</a>
+        <form action="/birds/{{this._id}}/delete" method="POST">
+            <button type="submit" class="btn"> Delete</button>
+        </form>
     </div>
 </div>
