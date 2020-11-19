@@ -221,11 +221,6 @@ h1 {
     line-height: 1em;
   }
 
-  .img-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
 
   h3 {
     font-weight: 600;
@@ -250,12 +245,17 @@ h1 {
     text-decoration: none;
     font-weight: 600;
     color: #6b847c;
-
   }
+}
 
-  hr {
-    border-top: 1px dashed;
-  }
+.img-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+hr {
+  border-top: 1px dashed;
 }
 
 .btn:focus {
@@ -317,4 +317,98 @@ h1 {
       background-color: #e0d8b2;
     }
   }
+}
+
+
+
+
+// Style for bird-details
+.details__container {
+  width: 500px;
+  height: 1200px;
+  margin: 70px;
+  margin-left: 15%;
+}
+.details-card{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  border-style: solid;
+  border-width: 20px;
+  border-color: #e0d8b2;
+  
+  .title-card {
+    line-height: 1em;
+  }
+
+  .img-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h3 {
+    font-weight: 600;
+    font-size: 2em;
+  }
+
+  h4 {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.5em;
+  }
+
+  .details__image {
+    height: 300px;
+    width: 80%;
+    border: 2px solid $secBtn;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .btn-details-container {
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+  
+    .btn-details-edit {
+      background-color: $secBtn;
+      margin-top: 5px;
+      padding: 10px 20px;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+      border-radius: 20px;
+      font-size: 1.2em;
+      border-style: none;
+      &:hover {
+        background-color: #e0d8b2;
+      }
+    }
+    
+    .btn-details-delete {
+      background-color: $primaryBtn;
+      margin-top: 5px;
+      padding: 50px 70px;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+      border-radius: 20px;
+      font-size: 1.2em;
+      border-style: none;
+      &:hover {
+        background-color: #e0d8b2;
+      }
+    }
+  }
+  }
+
+
+.btn-back {
+  margin-left: 350px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #6b847c;
+  font-size: 1.3em;
 }
