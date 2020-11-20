@@ -1,26 +1,24 @@
 const express = require('express');
-
 const Bird = require('../models/Bird.model');
 const fileUploader = require('../configs/cloudinary.config');
 const router = express.Router();
 
 router.get('/birds', (req, res) => {
+
     if (!req.user) {
-        res.redirect('/login'); // can't access the page, so go and log in
+        res.redirect('/login');
         return;
     }
-    // ok, req.user is defined
+
     Bird.find({})
         .then((birdsFromDB) => {
             res.render('users/birds', {
-                birdsFromDB, 
-            
+                birdsFromDB,
             });
         })
         .catch((err) => `Error fetching birds: ${err}`);
 });
 
-// SEE MORE DETAILS
 router.get("/birds/:id", (req, res) => {
     const {
         id
@@ -31,11 +29,11 @@ router.get("/birds/:id", (req, res) => {
         .catch((err) => `Error fetching birds: ${err}`);
 });
 
-// ADD BIRD
 router.get('/create', (req, res, next) => {
 
     res.render("users/create");
 });
+
 router.post('/create', fileUploader.single('imageUrl'), (req, res) => {
     const {
         name,
@@ -47,18 +45,17 @@ router.post('/create', fileUploader.single('imageUrl'), (req, res) => {
     } = req.body;
 
     Bird.create({
-            name,
-            scientificName,
-            dateOfSight,
-            location,
-            imageUrl: req.file.path,
-            moreInfo,
-        })
-        .then(() => res.redirect('/birds'))
-        .catch(error => console.log(`Error while creating a new bird: ${error}`));
+        name,
+        scientificName,
+        dateOfSight,
+        location,
+        imageUrl: req.file.path,
+        moreInfo,
+    })
+    .then(() => res.redirect('/birds'))
+    .catch(error => console.log(`Error while creating a new bird: ${error}`));
 });
 
-// EDIT BIRD
 router.get('/birds/:id/edit', (req, res, next) => {
 
     const {
@@ -73,7 +70,7 @@ router.get('/birds/:id/edit', (req, res, next) => {
 });
 
 router.post('/birds/:id/edit', fileUploader.single('imageUrl'), (req, res, next) => {
-    console.log(req.file)
+
     const {
         id
     } = req.params;
@@ -87,7 +84,7 @@ router.post('/birds/:id/edit', fileUploader.single('imageUrl'), (req, res, next)
     } = req.body;
 
     let imageUrl;
-   
+
     if (req.file) {
         imageUrl = req.file.path;
     } else {
@@ -112,7 +109,6 @@ router.post('/birds/:id/edit', fileUploader.single('imageUrl'), (req, res, next)
         );
 });
 
-//DELETE BIRD
 router.post('/birds/:id/delete', (req, res, next) => {
     const {
         id
@@ -122,8 +118,5 @@ router.post('/birds/:id/delete', (req, res, next) => {
         .then(() => res.redirect("/birds"))
         .catch((err) => console.log(`Error while deleting a bird: ${err}`));
 });
-
-
-//UPLOAD IMG (create form)
 
 module.exports = router;

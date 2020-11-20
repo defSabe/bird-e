@@ -3,28 +3,24 @@
 
 <div class="wrapper">
     <div class="container">
-    <h1>Sign up</h1>
-    <form action="/signup" method="post">
+        <h1>Sign up</h1>
+        <form action="/signup" method="post">
 
+            <input id="username" type="text" name="username" placeholder="Username">
+            <input id="email" type="email" name="email" placeholder="Email">
+            <input id="password" type="password" name="password" placeholder="Password">
+            <button class="action-btn">Sign up</button>
 
-        <input id="username" type="text" name="username" placeholder="Username">
+        </form>
 
+        <div class="additional">
+            <p>Already a member? <a class="link-form" href="/login">Log in</a></p>
+        </div>
 
-        <input id="email" type="email" name="email" placeholder="Email">
+        {{#if errorMessage}}
+        <div class="error-message">{{errorMessage}}</div>
+        {{/if}}
 
-
-        <input id="password" type="password" name="password" placeholder="Password">
-
-
-
-        <button class="action-btn">Sign up</button>
-
-    </form>
-    <div class="additional">
-        <p>Already a member? <a class="link-form" href="/login">Log in</a></p>
     </div>
-    {{#if errorMessage}}
-    <div class="error-message">{{errorMessage}}</div>
-    {{/if}}
-</div>
+
 </div>

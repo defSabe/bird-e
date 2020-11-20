@@ -7,54 +7,54 @@
 
 <div class="wrapper">
     <div class="details__container">
-    <div class="details-card">
-        <div class="header-card">
-            
-            <div class="title-card">
-                <h3>{{this.name}}</h3>
-                <h4>{{this.scientificName}}</h4>
+        <div class="details-card">
+            <div class="header-card">
+
+                <div class="title-card">
+                    <h3>{{this.name}}</h3>
+                    <h4>{{this.scientificName}}</h4>
+                </div>
+                <div class="btn-cont">
+                    <a href="/birds" class="btn-back">Back</a>
+                </div>
             </div>
-            <div class="btn-cont">
-                <a href="/birds" class="btn-back">Back</a>
+
+            <div class="img-container">
+                <img src="{{this.imageUrl}}" alt="{{this.name}}" class="details__image" />
             </div>
-        </div>
-        <div class="img-container">
-            <img src="{{this.imageUrl}}" alt="{{this.name}}" class="details__image" />
-        </div>
 
-        <div class="info-card">
-            <div class="col-card">
-            <div class="content-line">
-                <span><img src="/images/cam-icon.png" class="icon__image"></span>
-                <span class="inline-info">Seen on: {{this.dateOfSight}} </span>
+            <div class="info-card">
+                <div class="col-card">
+                    <div class="content-line">
+                        <span><img src="/images/cam-icon.png" class="icon__image"></span>
+                        <span class="inline-info">Seen on: {{this.dateOfSight}} </span>
+                    </div>
+                    <hr>
+
+                    <div class="content-line">
+                        <span><img src="/images/pin-icon.png" class="icon__image"></span>
+                        <span class="inline-info">{{this.location}}</span>
+                    </div>
+                    <hr>
+
+                    <div class="btn-details-container">
+                        <a href="/birds/{{this._id}}/edit" class="btn-card-edit">Edit</a>
+                        <form action="/birds/{{this._id}}/delete" method="POST">
+                            <button type="submit" class="btn-card-delete"> Delete</button>
+                        </form>
+
+                    </div>
+
+                </div>
+
+                <div class="col-card">
+                    <p>{{this.moreInfo}}</p>
+                </div>
 
             </div>
-            <hr>
-            <div class="content-line">
-                <span><img src="/images/pin-icon.png" class="icon__image"></span>
-                <span class="inline-info">{{this.location}}</span>
-
-            </div>
-            <hr>
-
-            <div class="btn-details-container">
-                <a href="/birds/{{this._id}}/edit" class="btn-card-edit">Edit</a>
-                <form action="/birds/{{this._id}}/delete" method="POST">
-                    <button type="submit" class="btn-card-delete"> Delete</button>
-                </form>
-            </div>
-        </div>
-
-        <div class="col-card">
-
-            <p>{{this.moreInfo}}</p>
 
         </div>
-        </div>
-
-
-
 
     </div>
-</div>
+    
 </div>

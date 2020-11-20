@@ -25,7 +25,7 @@ const birds = [{
         moreInfo: "Almost always seen in flight, which, as the name suggests, is swift. Nests in cavities in cliffs and buildings.",
     },
     {
-        name: "Common Wood-Pigeon (White-necked)",
+        name: "Common Wood-Pigeon",
         scientificName: "Columba palumbus",
         dateOfSight: "17 / 11 / 2020",
         location: "Rotterdam",

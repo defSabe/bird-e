@@ -13,9 +13,9 @@
                 <div class="title-cont">
                     <h1>Add new bird</h1>
                     <a href="/birds" class="btn-back">Go Back</a>
-
                 </div>
                 <hr>
+
                 <div class="flex-container">
                     <div class="col-cont">
                         <label for="name-input">Name:</label>
@@ -33,15 +33,18 @@
 
                     <div class="col-cont">
                         <label for="picture-url">Picture URL:</label>
-                        {{!-- <input type="text" name="imageUrl" id="picture-url" /> --}}
                         <input type="file" name="imageUrl" id="picture-url" />
 
-                        <label for="more-info">More Info: <i>(Max 600 charachers)</i></label>
+                        <label for="more-info">More Info: <i>(Max 600 characters)</i></label>
                         <input type="text" name="moreInfo" id="more-info" maxlength="600" />
                     </div>
                 </div>
+
                 <button type="submit" class="action-btn">Create</button>
             </div>
+
         </form>
+
     </div>
+    
 </div>
