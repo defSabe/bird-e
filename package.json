@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node app.js",
     "dev": "DEBUG=bird-e:* nodemon --inspect app.js",
-    "dev-windows": "node app.js"
+    "dev-windows": "node app.js",
+    "seeds": "node bin/seeds.js"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
