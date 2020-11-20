@@ -3,11 +3,11 @@
         <div class="img-container">
             <img src="{{imageUrl}}" alt="{{this.name}}" class="card__image" />
         </div>
-       
+
         <div>
             <div class="title-card">
-                 <h3>{{this.name}}</h3>
-            <h4>{{this.scientificName}}</h4>
+                <h3>{{this.name}}</h3>
+                <h4>{{this.scientificName}}</h4>
             </div>
 
             <div class="content-line">
@@ -19,13 +19,13 @@
             <div class="content-line">
                 <span><img src="/images/pin-icon.png" class="icon__image"></span>
                 <span class="inline-info">{{this.location}}</span>
-                
+
             </div>
             <hr>
             <a href="/birds/{{this._id}}" class="details-link">See more info</a>
-        <hr>
+            <hr>
         </div>
-        
+
         <div class="btn-container">
             <a href="/birds/{{this._id}}/edit" class="btn-card-edit">Edit</a>
             <form action="/birds/{{this._id}}/delete" method="POST">

@@ -5,27 +5,56 @@
     </div>
 </nav>
 
-<div class="card__container">
-    <div class="card">
-        <a href="/birds" class="btn draw-border">Back</a>
-        <p class="card__name">{{this.name}}</p>
-        <p class="scientific-name">{{this.scientificName}}</p>
-        <img src="{{this.imageUrl}}" alt="{{this.name}}" class="card__image" />
-        <div class="grid-container">
-            <div class="grid-child-date">
-                <img src="/images/pin-icon.png" class="icon__image">
-                <b>Seen on: </b>{{this.dateOfSight}} </div>
-            <div class="grid-child-location">
-                <img src="/images/cam-icon.png" class="icon__image">
-                {{this.location}}
+<div class="wrapper">
+    <div class="details__container">
+    <div class="details-card">
+        <div class="header-card">
+            
+            <div class="title-card">
+                <h3>{{this.name}}</h3>
+                <h4>{{this.scientificName}}</h4>
             </div>
-            <div class="grid-child-moreInfo">{{this.moreInfo}}</div>
+            <div class="btn-cont">
+                <a href="/birds" class="btn-back">Back</a>
+            </div>
         </div>
-        <div>
-            <a href="/birds/{{this._id}}/edit" class="btn">Edit</a>
-            <a href="/birds/{{this._id}}/delete" class="btn">Delete</a>
+        <div class="img-container">
+            <img src="{{this.imageUrl}}" alt="{{this.name}}" class="details__image" />
         </div>
+
+        <div class="info-card">
+            <div class="col-card">
+            <div class="content-line">
+                <span><img src="/images/cam-icon.png" class="icon__image"></span>
+                <span class="inline-info">Seen on: {{this.dateOfSight}} </span>
+
+            </div>
+            <hr>
+            <div class="content-line">
+                <span><img src="/images/pin-icon.png" class="icon__image"></span>
+                <span class="inline-info">{{this.location}}</span>
+
+            </div>
+            <hr>
+
+            <div class="btn-details-container">
+                <a href="/birds/{{this._id}}/edit" class="btn-card-edit">Edit</a>
+                <form action="/birds/{{this._id}}/delete" method="POST">
+                    <button type="submit" class="btn-card-delete"> Delete</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-card">
+
+            <p>{{this.moreInfo}}</p>
+
+        </div>
+        </div>
+
+
+
+
     </div>
-</div>
 </div>
 </div>
